@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "dev": "next dev -H 0.0.0.0",
+    "dev": "HOMEPAGE_ALLOWED_HOSTS=* next dev -H 0.0.0.0",
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint .",
