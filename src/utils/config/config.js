@@ -33,10 +33,7 @@ export default function checkAndCopyConfig(config) {
       copyFileSync(configSkeleton, configYaml);
       console.info("%s was copied to the config folder", config);
     } catch (err) {
-      console.error("❌ Failed to initialize required config: %s", configYaml);
-      console.error("Reason: %s", err.message);
-      console.error("Hint: Make /app/config writable or manually place the config file.");
-      process.exit(1);
+      console.warn("⚠️ Could not copy skeleton config to %s: %s", configYaml, err.message);
     }
 
     return true;
