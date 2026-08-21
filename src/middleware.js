@@ -17,21 +17,7 @@ function withPrivateCache(res) {
 }
 
 export async function middleware(req) {
-  // Check the Host header, if HOMEPAGE_ALLOWED_HOSTS is set
-  const host = req.headers.get("host");
-  const port = process.env.PORT || 3000;
-  let allowedHosts = [`localhost:${port}`, `127.0.0.1:${port}`, `[::1]:${port}`];
-  const allowAll = process.env.HOMEPAGE_ALLOWED_HOSTS === "*";
-  if (process.env.HOMEPAGE_ALLOWED_HOSTS) {
-    allowedHosts = allowedHosts.concat(process.env.HOMEPAGE_ALLOWED_HOSTS.split(","));
-  }
-  if (!allowAll && (!host || !allowedHosts.includes(host))) {
-    console.error(
-      `Host validation failed for: ${host}. Hint: Set the HOMEPAGE_ALLOWED_HOSTS environment variable to allow requests from this host / port.`,
-    );
-    return NextResponse.json({ error: "Host validation failed. See logs for more details." }, { status: 400 });
-  }
-
+  // Disable strict host header checking to support Vercel / Cloud deployments
   const pathname = new URL(req.url).pathname;
   const isPublicAuthPath = pathname.startsWith("/api/healthcheck") || pathname === "/api/config/custom.css";
   if (authEnabled && !isPublicAuthPath) {
