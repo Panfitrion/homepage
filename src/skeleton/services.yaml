@@ -2,7 +2,15 @@
 - Panfitrion:
     - CRM:
         href: https://panfitrion.github.io/CRM/
-        description: Panel Principal CRM
-    - Entregas:
+        description: Panel Principal CRM y Finanzas
+        icon: mdi-calculator
+
+    - Doc:
         href: https://panfitrion.github.io/pedidos/
-        description: Operación Móvil de Pedidos
+        description: Documentación y Operación Móvil
+        icon: mdi-book-open-page-variant
+
+    - Pass:
+        href: https://panfitrion.github.io/CRM/#security-gate
+        description: Control de Accesos y Seguridad
+        icon: mdi-lock-clock

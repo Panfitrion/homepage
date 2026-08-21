@@ -1,21 +1,16 @@
 ---
-# For configuration options and examples, please see:
-# https://gethomepage.dev/configs/services/
-
-
-
-- CRM:
-    - Inicio:
+- Panfitrion:
+    - CRM:
         href: https://panfitrion.github.io/CRM/
+        description: Panel Principal CRM y Finanzas
+        icon: mdi-calculator
 
-    - Entregas:
+    - Doc:
         href: https://panfitrion.github.io/pedidos/
-    
+        description: Documentación y Operación Móvil
+        icon: mdi-book-open-page-variant
 
-
-      
-
-- My Third Group:
-    - My Third Service:
-        href: http://localhost/
-        description: Homepage is 😎
+    - Pass:
+        href: https://panfitrion.github.io/CRM/#security-gate
+        description: Control de Accesos y Seguridad
+        icon: mdi-lock-clock
