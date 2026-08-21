@@ -57,7 +57,7 @@ function getFileLogger() {
 
 function init() {
   checkAndCopyConfig("settings.yaml");
-  const configuredTargets = process.env.LOG_TARGETS || "both";
+  const configuredTargets = process.env.LOG_TARGETS || (process.env.VERCEL ? "stdout" : "both");
   const loggingTransports = [];
 
   switch (configuredTargets) {
@@ -71,7 +71,7 @@ function init() {
       loggingTransports.push(getFileLogger());
       break;
     default:
-      loggingTransports.push(getConsoleLogger(), getFileLogger());
+      loggingTransports.push(getConsoleLogger());
   }
 
   winstonLogger = winston.createLogger({
