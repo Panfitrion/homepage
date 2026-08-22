@@ -11,6 +11,6 @@
         icon: mdi-book-open-page-variant
 
     - Pass:
-        href: https://192.168.1.96:8443
+        href: https://panfitrion.local:8443
         description: Vaultwarden (Bitwarden Self-Hosted HTTPS)
         icon: mdi-lock-check
